@@ -11,7 +11,7 @@ def main(sht):
 		buff_hum += pack('f', round(sht.read_rh(), 2))[:3]
 		i += 1
 
-		if i == 10:
+		if i == 12:
 			msg = buff_hum + buff_temp
 			print(msg, len(msg))
 			i = 0
