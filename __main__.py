@@ -1,10 +1,11 @@
 from sht_sensor import Sht
 from time import sleep
+from struct import pack
 
 def main(sht):
 	while True:
-		temp = round(sht.read_t(), 2)
-		hum = round(sht.read_rh(), 2)
+		temp = pack('f', round(sht.read_t(), 2))
+		hum = pack('f', round(sht.read_rh(), 2))
 		print(temp, hum)
 		sleep(10)
 
