@@ -1,21 +1,24 @@
 from sht_sensor import Sht
-from time import sleep
+from time import sleep, time
 from struct import pack
 
 def main(sht):
-	buff_temp = buff_hum = ''
+	# buffers
+	msg = ''
 	i = 0
 
 	while True:
-		buff_temp += pack('f', round(sht.read_t(), 2))[:3]
-		buff_hum += pack('f', round(sht.read_rh(), 2))[:3]
+		temp = pack('f', round(sht.read_t(), 2))
+		hum = pack('f', round(sht.read_rh(), 2))
+		timestamp = pack('L', int(time()))
+
+		msg =+ timestamp + temp + hum
 		i += 1
 
-		if i == 12:
-			msg = buff_hum + buff_temp
+		if i == 6:
 			print(msg, len(msg))
+			msg = ''
 			i = 0
-			buff_hum = buff_temp = ''
 
 		sleep(1)
 
