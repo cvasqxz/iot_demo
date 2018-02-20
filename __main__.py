@@ -7,8 +7,8 @@ def main(sht):
 	i = 0
 
 	while True:
-		buff_temp += pack('f', round(sht.read_t(), 2))
-		buff_hum += pack('f', round(sht.read_rh(), 2))
+		buff_temp += pack('f', round(sht.read_t(), 2))[:3]
+		buff_hum += pack('f', round(sht.read_rh(), 2))[:3]
 		i += 1
 
 		if i == 10:
@@ -17,7 +17,7 @@ def main(sht):
 			i = 0
 			buff_hum = buff_temp = ''
 
-		sleep(10)
+		sleep(1)
 
 if __name__ == '__main__':
 	sht = Sht(24, 23)
