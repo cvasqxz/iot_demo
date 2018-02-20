@@ -1,6 +1,7 @@
 from sht_sensor import Sht
 from time import sleep, time
 from struct import pack
+from OP_RETURN import OP_RETURN_send
 
 def main(sht):
 	# buffers
@@ -16,11 +17,16 @@ def main(sht):
 		i += 1
 
 		if i == 6:
-			print(msg.encode('hex'), len(msg))
+			result = OP_RETURN_send('cZJXM2yPqjbinTZ48fV8tjGqjxAePJeWuQ', 0.001, msg, False)
+			if 'error' in result:
+				print('Error: ' + result['error'])
+			else:
+				print('TxID: ' + result['txid'])
+
 			msg = ''
 			i = 0
 
-		sleep(1)
+		sleep(100)
 
 if __name__ == '__main__':
 	sht = Sht(24, 23)
