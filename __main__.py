@@ -6,7 +6,7 @@ def main(sht):
 	while True:
 		temp = pack('f', round(sht.read_t(), 2))
 		hum = pack('f', round(sht.read_rh(), 2))
-		print(temp, hum)
+		print(temp.encode('hex'), hum.encode('hex'))
 		sleep(10)
 
 if __name__ == '__main__':
