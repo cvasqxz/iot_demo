@@ -48,7 +48,7 @@ else:
 	OP_RETURN_BITCOIN_PASSWORD='' # leave empty to read from ~/.chaucha/chaucha.conf (Unix only)
 	
 OP_RETURN_BTC_FEE=0.001 # BTC fee to pay per transaction
-OP_RETURN_BTC_DUST=0.0001 # omit BTC outputs smaller than this
+OP_RETURN_BTC_DUST=0.001 # omit BTC outputs smaller than this
 
 OP_RETURN_MAX_BYTES=80 # maximum bytes in an OP_RETURN (80 as of Bitcoin 0.11)
 OP_RETURN_MAX_BLOCKS=10 # maximum number of blocks to try when retrieving data

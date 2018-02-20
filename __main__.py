@@ -18,7 +18,7 @@ def main(sht):
 		print('medicion %i: %s, %s' % (i, temp.encode('hex'), hum.encode('hex')))
 
 		if i == 6:
-			result = OP_RETURN_send('cZJXM2yPqjbinTZ48fV8tjGqjxAePJeWuQ', 0.002, msg, False)
+			result = OP_RETURN_send('cZJXM2yPqjbinTZ48fV8tjGqjxAePJeWuQ', 0.00100001, msg, False)
 			if 'error' in result:
 				print('Error: ' + result['error'])
 			else:
