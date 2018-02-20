@@ -12,11 +12,11 @@ def main(sht):
 		hum = pack('f', round(sht.read_rh(), 2))
 		timestamp = pack('L', int(time()))
 
-		msg =+ timestamp + temp + hum
+		msg += timestamp + temp + hum
 		i += 1
 
 		if i == 6:
-			print(msg, len(msg))
+			print(msg.encode('hex'), len(msg))
 			msg = ''
 			i = 0
 
