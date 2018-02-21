@@ -32,7 +32,7 @@ def main(sht):
 			msg = ''
 			i = 0
 
-		sleep(5)
+		sleep(100)
 
 if __name__ == '__main__':
 	sht = Sht(24, 23)
