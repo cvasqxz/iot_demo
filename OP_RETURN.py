@@ -329,7 +329,7 @@ def OP_RETURN_select_inputs(total_amount, testnet):
 
 
 def OP_RETURN_create_txn(inputs, outputs, metadata, metadata_pos, testnet):
-	raw_txn=OP_RETURN_bitcoin_cmd('createrawtransaction', testnet, '{:.8f}'.format(inputs), '{:.8f}'.format(outputs))
+	raw_txn=OP_RETURN_bitcoin_cmd('createrawtransaction', testnet, inputs, outputs)
 	
 	txn_unpacked=OP_RETURN_unpack_txn(OP_RETURN_hex_to_bin(raw_txn))
 	
@@ -422,7 +422,7 @@ def OP_RETURN_bitcoin_cmd(command, testnet, *args): # more params are read from 
 		for arg in args:
 			sub_args.append(json.dumps(arg) if isinstance(arg, (dict, list, tuple)) else str(arg))
 		
-		raw_result=subprocess.check_output(sub_args).decode("utf-8").rstrip("\n")
+		raw_result=subprocess.check_output(sub_args).rstrip("\n")
 		
 		try: # decode JSON if possible
 			result=json.loads(raw_result)
