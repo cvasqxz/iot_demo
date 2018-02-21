@@ -6,7 +6,7 @@ from random import random
 
 def main(sht):
 	# buffers
-	mov = 1
+	mov = float(0.001)
 	msg = ''
 	i = 0
 
@@ -30,7 +30,7 @@ def main(sht):
 			msg = ''
 			i = 0
 
-		sleep(100)
+		sleep(1)
 
 if __name__ == '__main__':
 	sht = Sht(24, 23)
