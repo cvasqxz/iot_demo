@@ -6,7 +6,7 @@ from random import random
 
 def main(sht):
 	# buffers
-	mov = float(0.001)
+	mov = 0.001
 	msg = ''
 	i = 0
 
@@ -20,7 +20,7 @@ def main(sht):
 		print('medicion %i: %s, %s' % (i, temp.encode('hex'), hum.encode('hex')))
 
 		if i == 6:
-			result = OP_RETURN_send('cbUUuT7wKZRan5PZCU1Qib63e4TWNKXJ2p', mov + random(), msg, False)
+			result = OP_RETURN_send('cbUUuT7wKZRan5PZCU1Qib63e4TWNKXJ2p', mov, msg, False)
 
 			if 'error' in result:
 				print('Error: ' + result['error'])
