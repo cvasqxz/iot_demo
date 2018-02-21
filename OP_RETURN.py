@@ -329,7 +329,7 @@ def OP_RETURN_select_inputs(total_amount, testnet):
 
 
 def OP_RETURN_create_txn(inputs, outputs, metadata, metadata_pos, testnet):
-	raw_txn=OP_RETURN_bitcoin_cmd('createrawtransaction', testnet, inputs, outputs)
+	raw_txn=OP_RETURN_bitcoin_cmd('createrawtransaction', testnet, '{:.8f}'.format(inputs), '{:.8f}'.format(outputs))
 	
 	txn_unpacked=OP_RETURN_unpack_txn(OP_RETURN_hex_to_bin(raw_txn))
 	
