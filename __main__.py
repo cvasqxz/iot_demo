@@ -5,7 +5,7 @@ from OP_RETURN import OP_RETURN_send
 
 def main(sht):
 	# buffers
-	fee = 0.001
+	mov = 0.1
 	msg = ''
 	i = 0
 
@@ -19,10 +19,7 @@ def main(sht):
 		print('medicion %i: %s, %s' % (i, temp.encode('hex'), hum.encode('hex')))
 
 		if i == 6:
-			try:
-				result = OP_RETURN_send('cbUUuT7wKZRan5PZCU1Qib63e4TWNKXJ2p', fee, msg, False)
-			except:
-				result = OP_RETURN_send('cbUUuT7wKZRan5PZCU1Qib63e4TWNKXJ2p', fee*2, msg, False)
+			result = OP_RETURN_send('cbUUuT7wKZRan5PZCU1Qib63e4TWNKXJ2p', mov, msg, False)
 
 			if 'error' in result:
 				print('Error: ' + result['error'])
