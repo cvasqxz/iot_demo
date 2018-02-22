@@ -20,7 +20,7 @@ def main(sht):
 		print('medicion %i: %s, %s' % (i, temp.encode('hex'), hum.encode('hex')))
 
 		if i == 6:
-			result = OP_RETURN_send('cTX6FfWWJEpzKUYNWAZcaELxp2uGsqiMpG', mov, msg, False)
+			result = OP_RETURN_send('cijgisFYuwYiqwhjZnbowrQYXsUq9G3GmA', mov, msg, False)
 
 			if 'error' in result:
 				print('Error: ' + result['error'])
@@ -30,7 +30,7 @@ def main(sht):
 			msg = ''
 			i = 0
 
-		sleep(1)
+		sleep(100)
 
 if __name__ == '__main__':
 	sht = Sht(24, 23)

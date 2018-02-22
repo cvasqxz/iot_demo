@@ -89,7 +89,6 @@ def OP_RETURN_send(send_address, send_amount, metadata, testnet=False):
 		return {'error': inputs_spend['error']}
 	
 	change_amount = round(inputs_spend['total']-output_amount, 8)
-	print("WEEE", change_amount)
 
 	# Build the raw transaction
 		
