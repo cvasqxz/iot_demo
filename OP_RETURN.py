@@ -95,10 +95,10 @@ def OP_RETURN_send(send_address, send_amount, metadata, testnet=False):
 	change_address=OP_RETURN_bitcoin_cmd('getrawchangeaddress', testnet)
 	
 	outputs={send_address: send_amount}
-	print("WEEEE", outputs)
 	
 	if change_amount>=OP_RETURN_BTC_DUST:
 		outputs[change_address]=change_amount
+		print("WEEE", change_amount)
 		
 	raw_txn=OP_RETURN_create_txn(inputs_spend['inputs'], outputs, metadata, len(outputs), testnet)
 
